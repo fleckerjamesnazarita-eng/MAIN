@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Love 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="HAPPYBIRTHDAY.css">
+</head>
+<body>
+  <div class="falling" id="falling"></div>
+  <div class="folder-container">
+    <!-- Bubble Folder -->
+    <div class="bubble-folder" id="folder" onclick="openLetter()">
+      <span class="bubble-folder-label">💌</span>
+    </div>
+    <!-- Blooming flowers row for "I LOVE YOU SO MUCH" -->
+    <div class="bloom-flowers-row">
+      <div class="bloom-flower" style="animation-delay:0.1s;"><span>I</span></div>
+      <div class="bloom-flower" style="animation-delay:0.2s;"><span>L</span></div>
+      <div class="bloom-flower" style="animation-delay:0.3s;"><span>O</span></div>
+      <div class="bloom-flower" style="animation-delay:0.4s;"><span>V</span></div>
+      <div class="bloom-flower" style="animation-delay:0.5s;"><span>E</span></div>
+      <div class="bloom-flower" style="animation-delay:0.6s;"><span>Y</span></div>
+      <div class="bloom-flower" style="animation-delay:0.7s;"><span>O</span></div>
+      <div class="bloom-flower" style="animation-delay:0.8s;"><span>U</span></div>
+      <div class="bloom-flower" style="animation-delay:0.9s;"><span>S</span></div>
+      <div class="bloom-flower" style="animation-delay:1.0s;"><span>O</span></div>
+      <div class="bloom-flower" style="animation-delay:1.1s;"><span>M</span></div>
+      <div class="bloom-flower" style="animation-delay:1.2s;"><span>U</span></div>
+      <div class="bloom-flower" style="animation-delay:1.3s;"><span>C</span></div>
+      <div class="bloom-flower" style="animation-delay:1.4s;"><span>H</span></div>
+    </div>
+    <!-- Letter -->
+    <div class="letter" id="letter">
+      <button class="back-btn" onclick="backToFolder()">Back</button>
+      <div class="letter-header">I Love you! <span class="heart">❤️</span></div>
+      <div class="letter-message">
+✨💖 HELLO LOVEE!!!! 💖✨ 
+Happy birthday poo! 🥳 Sorry ngayon ko lang nagawa 'tong ganto. 
+Gusto kong gawing special birthday mo ngayon kaso hindi kagaya last year na lumabas us, 
+pero tatry ko parin. Sorry kung lalabas lang tayo para kumain, pasensya kung eto lang gift ko sayo—
+pero at least pwede mong basahin lagi diba? Eme. 💌
+
+<img src="photo_2025-09-12_00-59-02.jpg" alt="Birthday Photo 1">
+<img src="photo_2025-09-12_00-59-11.jpg" alt="Birthday Photo 2">
+<img src="photo_2025-09-12_00-59-17.jpg" alt="Birthday Photo 3">
+
+Sorry love kung nag-aaway tayo lagi, sorry kung hindi ko napapakinggan mga hinanakit mo sa life. 
+Knows ko namang wala ako sa best ko now. Gusto ko bigay sayo lahat ngayong birthday mo, 
+gusto kitang bigyan ng mga gusto mo—gustong gusto ko. Tama naman kung sasabihin mong 
+"if gusto, may paraan", pero hindi ko kayang i-apply ngayon yang kasabihan na 'yan HAHAHAH. 
+Masyado akong hirap ngayon love, sorry kung nadadamay kita sa sitwasyon ko ngayon. 
+
+<img src="photo_2025-09-12_00-59-19.jpg" alt="Birthday Photo 4">
+<img src="photo_2025-09-12_00-59-42.jpg" alt="Birthday Photo 5">
+
+Hayaan mo, kapag pumaldo ako sa buhay kahit humilata ka lang jan, basta lagi mong tandaan na love na love kita. 
+Kahit hindi ganon kahaba pasensya ko, kahit napagsasalitaan kita minsan, kahit parang hindi kita iniintindi—
+tandaan mong mahal na mahal kita. ❤️ 
+
+<img src="photo_2025-09-12_04-36-11.jpg" alt="Birthday Photo 6">
+<img src="photo_2025-09-12_04-36-23.jpg" alt="Birthday Photo 7">
+
+Kung hindi ako nagsasabi sayo ng problema, ibig sabihin lang nun ayaw kitang idamay dun dahil mas iniisip mo pa yun kesa sakin WAHAHHAH. 
+Basta love, tandaan mong mahal na mahal kita! Hindi ko man maibigay ngayon lahat, soon love, soon. 💯 
+Kapag pumaldo ako sa buhay, ikaw yung unang taong papasalamatan ko! Salamat anjan ka palagi para sakin, 
+sana anjan ka parin kapag natupad ko na pangarap ko sa buhay. ✨ 
+
+Basta enjoy mo lang tong araw na to! ✨ 21 ka na HAHAHAHHA matanda ka na! HAPPY BIRTHDAY 🎂 
+and sana matupad mo lahat ng wish mo sa life! Enjoy mo lang tong araw na to, dedma sa lahat ng basher! 
+
+I LOVE YOU SOOOOOOO MUCHHHH!!!!!!!!!!!!!!!!!!!!!!!!! 💕💘💞 
+Here lang ako lagi—your number one fan, basher, friend, bestfriend, boyfriend (soon), asawa (soon bakit ba?), 
+kalaban sa life, kakampi, mortal na kaaway, best ally, kuya, tito, kapitbahay, papa choco, bantay bahay. 
+
+I LOVE YOU SOOO MUCHHHH!!!!!!!!!!!!! 🥰
+      </div>
+    </div>
+  </div>
+  
+  <!-- Lyrics section starts here -->
+  <p>
+    If you leave me don't you ever think I want you go
+    'Cause I'm bound to you
+    All I need is you to wait for me and I'll be there for you
+    'Cause I'll run to you
+    My heart belongs to you
+    I'll take a piece of you
+    <!-- ...rest of your lyrics... -->
+  </p>
+  <!-- Lyrics section ends here -->
+  <script>
+    // Falling flowers and hearts
+    const emojis = ["💖","🌸","💗","🌷","💞","🌹","💐","💕"];
+    function createFalling() {
+      const falling = document.getElementById('falling');
+      falling.innerHTML = '';
+      for(let i=0;i<18;i++) {
+        const span = document.createElement('span');
+        span.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+        span.style.left = Math.random()*100 + 'vw';
+        span.style.animationDelay = (Math.random()*5) + 's';
+        span.style.fontSize = (1.8 + Math.random()*1.8) + 'em';
+        falling.appendChild(span);
+      }
+    }
+    createFalling();
+    setInterval(createFalling, 6000);
+
+    function openLetter() {
+      document.getElementById('letter').classList.add('show');
+      document.getElementById('folder').classList.add('hide');
+    }
+    function backToFolder() {
+      document.getElementById('letter').classList.remove('show');
+      document.getElementById('folder').classList.remove('hide');
+    }
+  </script>
+</body>
+</html>
