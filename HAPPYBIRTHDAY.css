@@ -1,0 +1,397 @@
+/* Body and background */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: url(photo_2025-09-12_05-15-28.jpg) center center fixed;
+  background-size: cover;
+  font-family: 'Indie Flower', 'Comic Sans MS', cursive, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Falling emojis */
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) scale(1.2) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+.falling {
+  pointer-events: none;
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  z-index: 100;
+  overflow: visible;
+}
+.falling span {
+  position: absolute;
+  font-size: 2.2em;
+  opacity: 0.85;
+  animation: fall 6s linear infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Bubble folder theme */
+.bubble-folder {
+  width: 220px;
+  height: 220px;
+  background: rgba(255,255,255,0.35); /* semi-transparent white */
+  border-radius: 50%;
+  box-shadow: 0 4px 32px rgba(255,182,193,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto 24px auto;
+  cursor: pointer;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.3s;
+  z-index: 2;
+}
+.bubble-folder:hover {
+  box-shadow: 0 8px 48px #ffb6d5;
+  transform: scale(1.04);
+}
+.bubble-folder-label {
+  font-size: 4em;
+  user-select: none;
+  text-shadow: 0 2px 8px #fff6fa;
+}
+.bubble-folder.hide {
+  display: none;
+}
+
+/* Blooming flowers row for "I LOVE YOU SO MUCH" */
+.bloom-flowers-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 24px 0 0 0;
+  flex-wrap: wrap;
+}
+.bloom-flower {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.2);
+  animation: bloom 1s forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bloom-flower span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 1.1em;
+  font-family: 'Indie Flower', 'Comic Sans MS', cursive, sans-serif;
+  color: #ff69b4;
+  font-weight: bold;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+  letter-spacing: 1px;
+}
+.bloom-flower::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.35); /* more transparent */
+  border-radius: 50%;
+  z-index: 1;
+}
+@keyframes bloom {
+  60% { opacity: 1; transform: scale(1.1);}
+  100% { opacity: 1; transform: scale(1);}
+}
+
+/* Letter styles */
+.letter {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+  height: 40vw;
+  max-width: 700px;
+  max-height: 80vh;
+  min-width: 320px;
+  min-height: 320px;
+  background: rgba(255, 255, 255, 0.18); /* semi-transparent white */
+  border: 2px solid #fff;
+  border-radius: 36px;
+  z-index: 10;
+  padding: 36px;
+  opacity: 0;
+  transition: opacity 0.6s;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  pointer-events: none;
+  backdrop-filter: blur(10px); /* frosted glass effect */
+  box-sizing: border-box;
+  font-family: 'Indie Flower', 'Comic Sans MS', cursive, sans-serif;
+}
+.letter.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.letter-header {
+  text-align: center;
+  color: #FF6B6B;
+  font-size: 2.2em;
+  font-weight: bold;
+  margin-bottom: 18px;
+  letter-spacing: 2px;
+  font-family: 'Indie Flower', 'Comic Sans MS', cursive, sans-serif;
+}
+.heart {
+  font-size: 1.5em;
+  color: #FF6B6B;
+  margin-left: 10px;
+}
+.letter-message {
+  color: #FF69B4;
+  font-size: 1.08em;
+  white-space: pre-line;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 1.5;
+  word-break: break-word;
+  font-family: 'Indie Flower', 'Comic Sans MS', cursive, sans-serif;
+}
+.letter-message img {
+  width: 80%;
+  margin: 16px auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Back button style */
+.back-btn {
+  margin: 0 auto 12px auto;
+  display: block;
+  background: linear-gradient(90deg, #ffb6d5 0%, #ffe6f7 100%);
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  font-size: 1.1em;
+  font-family: inherit;
+  padding: 8px 32px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.back-btn:hover {
+  background: linear-gradient(90deg, #ffe6f7 0%, #ffb6d5 100%);
+  color: #ff69b4;
+  transform: scale(1.05);
+}
+
+/* Lyrics text effect */
+p {
+  font-size: 8px;
+  line-height: 8px;
+  text-align: justify;
+  background: url(photo_2025-09-12_05-15-28.jpg) no-repeat center/cover;
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(225, 225, 255, 0);
+}
+
+/* Purple Flowers Animation */
+.flowers {
+  position: relative;
+  width: 340px;
+  height: 220px;
+  margin: 0 auto 30px auto;
+  transform: scale(0.9);
+  z-index: 10;
+}
+.flower {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.flower--1 { left: 30%; animation: moving-flower-1 4s linear infinite; }
+.flower--2 { left: 50%; animation: moving-flower-2 5s linear infinite; }
+.flower--3 { left: 70%; animation: moving-flower-3 6s linear infinite; }
+
+@keyframes moving-flower-1 {
+  0%,100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.05); }
+}
+@keyframes moving-flower-2 {
+  0%,100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.08); }
+}
+@keyframes moving-flower-3 {
+  0%,100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.03); }
+}
+
+/* Flower stem */
+.flower__line {
+  width: 4px;
+  height: 80px;
+  background: linear-gradient(to top, #4b2067 60%, #a259c6 100%);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Leaves */
+.flower__leaf {
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  background: radial-gradient(ellipse at center, #3a1c4b 60%, #7a3fa7 100%);
+  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+  bottom: 18px;
+}
+.flower__leaf--1 {
+  left: -22px;
+  transform: rotate(-35deg);
+}
+.flower__leaf--2 {
+  right: -22px;
+  transform: rotate(35deg);
+}
+
+/* Petals */
+.flower__petal {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle at 60% 40%, #e0b3ff 60%, #a259c6 100%);
+  border-radius: 50%;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  opacity: 0.95;
+  box-shadow: 0 0 16px #a259c6;
+}
+.flower__petal--1 { transform: translateX(-50%) rotate(0deg) scale(1); }
+.flower__petal--2 { transform: translateX(-50%) rotate(72deg) scale(0.92); }
+.flower__petal--3 { transform: translateX(-50%) rotate(144deg) scale(0.92); }
+.flower__petal--4 { transform: translateX(-50%) rotate(216deg) scale(0.92); }
+.flower__petal--5 { transform: translateX(-50%) rotate(288deg) scale(0.92); }
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .flowers {
+    width: 180px;
+    height: 120px;
+    transform: scale(0.7);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .folder-container {
+    width: 98vw;
+    min-width: 320px;
+    height: 60vw;
+    min-height: 220px;
+  }
+  .bloom-flowers-row {
+    gap: 2px;
+  }
+  .bloom-flower {
+    width: 36px;
+    height: 36px;
+  }
+  .bloom-flower span {
+    font-size: 1em;
+  }
+  .bloom-flower::before {
+    width: 36px; height: 36px;
+  }
+  .letter {
+    width: 90vw;
+    min-width: 220px;
+    height: 60vw;
+    min-height: 180px;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  .bloom-flower, .bloom-flower::before {
+    width: 28px;
+    height: 28px;
+  }
+  .bloom-flower span {
+    font-size: 0.85em;
+  }
+  .bloom-flowers-row {
+    gap: 3px;
+  }
+}
+
+/* Responsive, centered, and big letter modal */
+.letter {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+  height: 40vw;
+  max-width: 700px;
+  max-height: 80vh;
+  min-width: 320px;
+  min-height: 320px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid #fff;
+  border-radius: 36px;
+  z-index: 10;
+  padding: 36px;
+  opacity: 0;
+  transition: opacity 0.6s;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
+  font-family: 'Indie Flower', 'Comic Sans MS', cursive, sans-serif;
+}
+.letter.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive for phones */
+@media (max-width: 700px) {
+  .letter {
+    width: 96vw;
+    height: 85vh;
+    min-width: 0;
+    min-height: 0;
+    padding: 10px;
+    font-size: 1em;
+  }
+  .letter-header {
+    font-size: 1.3em;
+  }
+  .letter-message {
+    font-size: 1em;
+    padding: 0 2px;
+  }
+}
